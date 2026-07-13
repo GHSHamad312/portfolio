@@ -1,0 +1,85 @@
+/* Research page CSS */
+.research-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-width: 800px;
+}
+
+.scroll-card {
+  padding: var(--space-xl);
+  display: flex;
+  gap: var(--space-lg);
+  transition: border-color 0.25s;
+}
+
+.scroll-card:hover {
+  border-color: var(--clr-gold-dim);
+}
+
+.scroll-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 10px rgba(201, 168, 76, 0.4));
+  margin-top: 4px;
+}
+
+.scroll-content {
+  flex: 1;
+}
+
+.scroll-venue {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  color: var(--clr-gold-dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.scroll-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--clr-gold-bright);
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.scroll-description {
+  font-size: 0.82rem;
+  color: var(--clr-text-dim);
+  line-height: 1.7;
+}
+
+.coming-soon-card {
+  padding: var(--space-xl);
+  margin-top: var(--space-lg);
+  max-width: 800px;
+  border: 1px dashed var(--clr-border);
+}
+
+.coming-soon-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.coming-soon-title {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  color: var(--clr-gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.coming-soon-text {
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .page-container { padding: var(--space-xl) var(--space-md); }
+  .scroll-card { flex-direction: column; gap: var(--space-md); padding: var(--space-lg); }
+}

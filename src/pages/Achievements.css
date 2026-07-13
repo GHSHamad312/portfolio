@@ -1,0 +1,124 @@
+/* Achievements page CSS */
+.achievement-progress-wrap {
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.achievement-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--clr-text-dim);
+  margin-bottom: 10px;
+  font-family: var(--font-heading);
+  letter-spacing: 0.05em;
+}
+
+.achievement-progress-track {
+  height: 8px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--clr-border);
+}
+
+.achievement-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #c9a84c88, #c9a84c);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.4);
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+
+.achievement-card {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  position: relative;
+  border: 1px solid var(--clr-border);
+  transition: all 0.3s;
+}
+
+.achievement-card.unlocked {
+  cursor: pointer;
+}
+
+.achievement-card.unlocked:hover {
+  border-color: var(--rarity-color);
+}
+
+.achievement-card.locked {
+  opacity: 0.7;
+  filter: saturate(0.3);
+}
+
+.ach-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(201, 168, 76, 0.08);
+  border: 2px solid var(--clr-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.ach-icon {
+  font-size: 1.8rem;
+}
+
+.locked-icon {
+  background: rgba(0,0,0,0.3);
+}
+
+.lock-overlay {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  font-size: 0.9rem;
+  background: rgba(10,7,3,0.9);
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--clr-border);
+}
+
+.ach-rarity-badge {
+  font-family: var(--font-heading);
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 2px 8px;
+}
+
+.ach-title {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: var(--clr-gold-bright);
+  letter-spacing: 0.05em;
+}
+
+.ach-desc {
+  font-size: 0.72rem;
+  color: var(--clr-text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .page-container { padding: var(--space-xl) var(--space-md); }
+  .achievements-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-sm); }
+}

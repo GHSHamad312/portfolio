@@ -1,0 +1,52 @@
+.stat-bar-wrap {
+  margin-bottom: 14px;
+}
+
+.stat-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.stat-bar-label {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  color: var(--clr-text-dim);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.stat-bar-value {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.stat-bar-track {
+  position: relative;
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.stat-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-bar-glow {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  opacity: 0.4;
+  filter: blur(3px);
+  border-radius: 3px;
+}

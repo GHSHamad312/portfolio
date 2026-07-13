@@ -1,0 +1,148 @@
+/* =============================================
+   KEYFRAME ANIMATIONS
+   ============================================= */
+
+/* Glow pulse for gold elements */
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(201, 168, 76, 0.2), 0 0 30px rgba(201, 168, 76, 0.05); }
+  50% { box-shadow: 0 0 20px rgba(201, 168, 76, 0.4), 0 0 60px rgba(201, 168, 76, 0.15); }
+}
+
+/* Glow pulse for text */
+@keyframes textGlow {
+  0%, 100% { text-shadow: 0 0 10px rgba(201, 168, 76, 0.3); }
+  50% { text-shadow: 0 0 25px rgba(201, 168, 76, 0.8), 0 0 50px rgba(201, 168, 76, 0.4); }
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Fade in from bottom */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Scan line */
+@keyframes scanLine {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* HP bar fill animation */
+@keyframes barFill {
+  from { width: 0%; }
+  to { width: var(--target-width, 100%); }
+}
+
+/* Blink cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Rotate border */
+@keyframes rotateBorder {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Particle float */
+@keyframes particleFloat {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.3; }
+  90% { opacity: 0.3; }
+  100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+}
+
+/* Active nav indicator */
+@keyframes navGlow {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Shake (for locked achievements) */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* Achievement unlock */
+@keyframes achievementUnlock {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Number count up shimmer */
+@keyframes numberShimmer {
+  0%, 100% { color: var(--clr-gold); }
+  50% { color: var(--clr-gold-bright); }
+}
+
+/* =============================================
+   PARTICLES BACKGROUND
+   ============================================= */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  bottom: -10px;
+  width: 3px;
+  height: 3px;
+  background: var(--clr-gold-dim);
+  border-radius: 50%;
+  animation: particleFloat linear infinite;
+}
+
+.particle:nth-child(1)  { left: 8%;   animation-duration: 15s; animation-delay: 0s;   width: 2px; height: 2px; }
+.particle:nth-child(2)  { left: 15%;  animation-duration: 20s; animation-delay: 3s;   width: 3px; height: 3px; }
+.particle:nth-child(3)  { left: 25%;  animation-duration: 18s; animation-delay: 7s;   width: 2px; height: 2px; }
+.particle:nth-child(4)  { left: 35%;  animation-duration: 22s; animation-delay: 1s;   width: 4px; height: 4px; }
+.particle:nth-child(5)  { left: 45%;  animation-duration: 16s; animation-delay: 5s;   width: 2px; height: 2px; }
+.particle:nth-child(6)  { left: 55%;  animation-duration: 24s; animation-delay: 2s;   width: 3px; height: 3px; }
+.particle:nth-child(7)  { left: 65%;  animation-duration: 19s; animation-delay: 8s;   width: 2px; height: 2px; }
+.particle:nth-child(8)  { left: 75%;  animation-duration: 21s; animation-delay: 4s;   width: 4px; height: 4px; }
+.particle:nth-child(9)  { left: 85%;  animation-duration: 17s; animation-delay: 6s;   width: 2px; height: 2px; }
+.particle:nth-child(10) { left: 92%;  animation-duration: 23s; animation-delay: 9s;   width: 3px; height: 3px; }
+
+/* =============================================
+   ANIMATION UTILITY CLASSES
+   ============================================= */
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-glow { animation: goldPulse 3s ease-in-out infinite; }
+.animate-text-glow { animation: textGlow 3s ease-in-out infinite; }
+.animate-fadeInUp { animation: fadeInUp 0.6s ease forwards; }
+.animate-shimmer {
+  background: linear-gradient(90deg, var(--clr-gold) 0%, var(--clr-gold-bright) 50%, var(--clr-gold) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}

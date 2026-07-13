@@ -1,0 +1,180 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: rgba(8, 6, 4, 0.96);
+  border-bottom: 1px solid var(--clr-border);
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(16px);
+  height: var(--topbar-height);
+  gap: 16px;
+}
+
+/* ── LEFT ─────────────────────────────── */
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+/* Avatar */
+.topbar-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.topbar-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--clr-gold);
+  box-shadow: 0 0 14px rgba(201, 168, 76, 0.35);
+  display: block;
+}
+
+.topbar-avatar-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  animation: goldPulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Green status dot */
+.topbar-status-dot {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #2ecc71;
+  border: 2px solid rgba(8, 6, 4, 1);
+  box-shadow: 0 0 6px rgba(46, 204, 113, 0.7);
+  animation: statusPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(46, 204, 113, 0.7); }
+  50%       { box-shadow: 0 0 12px rgba(46, 204, 113, 1); }
+}
+
+/* Identity */
+.topbar-identity {
+  min-width: 0;
+}
+
+.topbar-name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.topbar-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--clr-gold-bright);
+  letter-spacing: 0.14em;
+  line-height: 1;
+}
+
+/* Inline LVL badge next to name */
+.topbar-level {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+  background: linear-gradient(135deg, #1a1208, #2a1c08);
+  border: 1px solid var(--clr-gold-dim);
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+
+.topbar-level-lbl {
+  font-family: var(--font-heading);
+  font-size: 0.45rem;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.12em;
+}
+
+.topbar-level-num {
+  font-family: var(--font-heading-deco);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--clr-gold-bright);
+  text-shadow: 0 0 8px rgba(240, 208, 128, 0.4);
+  line-height: 1;
+}
+
+.topbar-title {
+  font-size: 0.62rem;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 340px;
+}
+
+/* ── RIGHT — stat chips ───────────────── */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.topbar-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--clr-border);
+  border-radius: 20px;
+  cursor: default;
+  transition: all 0.2s;
+}
+
+.topbar-chip:hover {
+  background: rgba(201, 168, 76, 0.07);
+  border-color: var(--clr-gold-dim);
+}
+
+.topbar-chip-icon {
+  display: flex;
+  align-items: center;
+  color: var(--clr-text-muted);
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.topbar-chip-label {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  color: var(--clr-text-dim);
+  letter-spacing: 0.07em;
+  white-space: nowrap;
+}
+
+.topbar-chip:hover .topbar-chip-label {
+  color: var(--clr-gold);
+}
+
+/* ── Mobile ───────────────────────────── */
+@media (max-width: 768px) {
+  .topbar-right { display: none; }
+  .topbar { padding: 0 16px; }
+}
+
+@media (max-width: 480px) {
+  .topbar-title { display: none; }
+  .topbar-avatar { width: 38px; height: 38px; }
+}

@@ -21,13 +21,28 @@
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid var(--clr-border);
+  position: relative;
 }
 
+/* Shimmer sweep on progress fill */
 .achievement-progress-fill {
   height: 100%;
   background: linear-gradient(90deg, #c9a84c88, #c9a84c);
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(201, 168, 76, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.achievement-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmerSweep 2s ease-in-out infinite;
 }
 
 .achievements-grid {
@@ -45,7 +60,8 @@
   text-align: center;
   position: relative;
   border: 1px solid var(--clr-border);
-  transition: all 0.3s;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
 }
 
 .achievement-card.unlocked {
@@ -54,6 +70,26 @@
 
 .achievement-card.unlocked:hover {
   border-color: var(--rarity-color);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--rarity-glow, rgba(201, 168, 76, 0.1));
+}
+
+/* Rarity corner glow on unlocked cards */
+.achievement-card.unlocked::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 60px;
+  height: 60px;
+  background: var(--rarity-color, var(--clr-gold));
+  border-radius: 50%;
+  opacity: 0.06;
+  filter: blur(15px);
+  transition: opacity 0.3s;
+}
+
+.achievement-card.unlocked:hover::before {
+  opacity: 0.15;
 }
 
 .achievement-card.locked {
@@ -71,10 +107,26 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  transition: transform 0.3s;
+}
+
+.achievement-card:hover .ach-icon-wrap {
+  transform: scale(1.05);
 }
 
 .ach-icon {
   font-size: 1.8rem;
+}
+
+/* Rotating ring for epic/legendary */
+.ach-rotating-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px dashed;
+  opacity: 0.4;
+  animation: rotateBorder 12s linear infinite;
+  pointer-events: none;
 }
 
 .locked-icon {
@@ -110,6 +162,11 @@
   font-size: 0.85rem;
   color: var(--clr-gold-bright);
   letter-spacing: 0.05em;
+  transition: text-shadow 0.3s;
+}
+
+.achievement-card:hover .ach-title {
+  text-shadow: 0 0 12px rgba(240, 208, 128, 0.3);
 }
 
 .ach-desc {

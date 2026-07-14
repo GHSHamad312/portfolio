@@ -56,18 +56,21 @@ export default function Achievements() {
       <div className="achievements-grid">
         {unlocked.map((ach, i) => {
           const rarity = rarityConfig[ach.rarity];
+          const isHighRarity = ach.rarity === 'epic' || ach.rarity === 'legendary';
           return (
             <motion.div
               key={ach.id}
-              className="achievement-card glass-card unlocked"
+              className={`achievement-card glass-card unlocked ${isHighRarity ? 'high-rarity' : ''}`}
               initial={{ opacity: 0, scale: 0.85 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.07, type: 'spring', stiffness: 200 }}
-              whileHover={{ scale: 1.04, boxShadow: `0 0 30px ${rarity.glow}` }}
+              whileHover={{ scale: 1.04 }}
               style={{ '--rarity-color': rarity.color, '--rarity-glow': rarity.glow }}
             >
               <div className="ach-icon-wrap" style={{ boxShadow: `0 0 20px ${rarity.glow}` }}>
                 <span className="ach-icon">{ach.icon}</span>
+                {/* Rotating ring for epic/legendary */}
+                {isHighRarity && <div className="ach-rotating-ring" style={{ borderColor: rarity.color }} />}
               </div>
               <div className="ach-rarity-badge" style={{ color: rarity.color, borderColor: rarity.color }}>
                 {rarity.label}

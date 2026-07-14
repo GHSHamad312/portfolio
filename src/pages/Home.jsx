@@ -39,13 +39,44 @@ function MailIcon() {
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 };
+
+/* Animated count-up hook */
+function useCountUp(target, duration = 1500, delay = 500) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const num = parseInt(target, 10);
+      if (isNaN(num)) { setCount(target); return; }
+      let start = 0;
+      const step = Math.max(1, Math.floor(num / (duration / 30)));
+      const timer = setInterval(() => {
+        start += step;
+        if (start >= num) { setCount(num); clearInterval(timer); }
+        else setCount(start);
+      }, 30);
+      return () => clearInterval(timer);
+    }, delay);
+    return () => clearTimeout(timeout);
+  }, [target, duration, delay]);
+  return typeof target === 'string' && isNaN(parseInt(target, 10)) ? target : count;
+}
+
+function CountUpStat({ value, label, delay }) {
+  const display = useCountUp(value, 1200, delay);
+  return (
+    <motion.div className="stat-box" variants={itemVariants}>
+      <span className="stat-box-value">{display}{typeof value === 'string' && value.includes('+') ? '+' : ''}</span>
+      <span className="stat-box-sublabel">{label}</span>
+    </motion.div>
+  );
+}
 
 export default function Home() {
   const [typedText, setTypedText] = useState('');
@@ -79,6 +110,13 @@ export default function Home() {
         <div className="home-bg-overlay" />
       </div>
 
+      {/* Decorative floating orbs */}
+      <div className="hero-orbs" aria-hidden="true">
+        <div className="hero-orb orb-1" />
+        <div className="hero-orb orb-2" />
+        <div className="hero-orb orb-3" />
+      </div>
+
       <div className="home-grid">
         {/* HERO LEFT */}
         <div className="hero-main">
@@ -92,7 +130,7 @@ export default function Home() {
           </motion.h1>
 
           <motion.p className="hero-subtitle" variants={itemVariants}>
-            Computer Science Student<br />& Developer
+            Computer Science Student<br />&amp; Developer
           </motion.p>
 
           <motion.p className="hero-bio" variants={itemVariants}>
@@ -120,19 +158,12 @@ export default function Home() {
             ))}
           </motion.div>
 
-          {/* DEV STATS ROW */}
+          {/* DEV STATS ROW — with count-up */}
           <motion.div className="stats-row" variants={itemVariants}>
-            {[
-              { value: '12',   label: 'Public Repos'    },
-              { value: '8+',   label: 'Projects Shipped' },
-              { value: '13',   label: 'GitHub Followers' },
-              { value: '2024', label: 'GitHub Since'     },
-            ].map(stat => (
-              <div key={stat.label} className="stat-box">
-                <span className="stat-box-value">{stat.value}</span>
-                <span className="stat-box-sublabel">{stat.label}</span>
-              </div>
-            ))}
+            <CountUpStat value="12" label="Public Repos" delay={600} />
+            <CountUpStat value="8" label="Projects Shipped" delay={750} />
+            <CountUpStat value="13" label="GitHub Followers" delay={900} />
+            <CountUpStat value="2024" label="GitHub Since" delay={1050} />
           </motion.div>
         </div>
 
@@ -159,6 +190,17 @@ export default function Home() {
                   <span className="quest-progress">
                     {q.infinite ? '∞' : `${q.current}/${q.max}`}
                   </span>
+                  {/* Progress bar for incomplete quests */}
+                  {!q.done && !q.infinite && (
+                    <div className="quest-bar">
+                      <motion.div
+                        className="quest-bar-fill"
+                        initial={{ width: 0 }}
+                        animate={{ width: `${(q.current / q.max) * 100}%` }}
+                        transition={{ duration: 1.2, delay: 0.8 + i * 0.1 }}
+                      />
+                    </div>
+                  )}
                 </motion.li>
               ))}
             </ul>

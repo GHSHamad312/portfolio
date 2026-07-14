@@ -4,7 +4,7 @@
   justify-content: space-between;
   padding: 0 24px;
   background: rgba(8, 6, 4, 0.96);
-  border-bottom: 1px solid var(--clr-border);
+  border-bottom: 1px solid transparent;
   box-shadow: 0 1px 30px rgba(0, 0, 0, 0.6);
   position: sticky;
   top: 0;
@@ -12,6 +12,28 @@
   backdrop-filter: blur(16px);
   height: var(--topbar-height);
   gap: 16px;
+}
+
+/* Animated gradient border on bottom */
+.topbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 168, 76, 0.15) 15%,
+    rgba(201, 168, 76, 0.5) 35%,
+    rgba(240, 208, 128, 0.6) 50%,
+    rgba(201, 168, 76, 0.5) 65%,
+    rgba(201, 168, 76, 0.15) 85%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: flowGradient 8s ease-in-out infinite;
 }
 
 /* ── LEFT ─────────────────────────────── */
@@ -36,15 +58,41 @@
   border: 2px solid var(--clr-gold);
   box-shadow: 0 0 14px rgba(201, 168, 76, 0.35);
   display: block;
+  transition: box-shadow 0.3s;
 }
 
+.topbar-avatar-wrap:hover .topbar-avatar {
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.5), 0 0 40px rgba(201, 168, 76, 0.2);
+}
+
+/* Rotating gradient ring */
 .topbar-avatar-ring {
   position: absolute;
-  inset: -4px;
+  inset: -5px;
   border-radius: 50%;
-  border: 1px solid rgba(201, 168, 76, 0.25);
-  animation: goldPulse 3s ease-in-out infinite;
+  border: none;
   pointer-events: none;
+}
+
+.topbar-avatar-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 1px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(201, 168, 76, 0.4) 20%,
+    transparent 40%,
+    rgba(240, 208, 128, 0.3) 60%,
+    transparent 80%,
+    rgba(201, 168, 76, 0.4) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotateBorder 6s linear infinite;
 }
 
 /* Green status dot */
@@ -63,7 +111,7 @@
 
 @keyframes statusPulse {
   0%, 100% { box-shadow: 0 0 6px rgba(46, 204, 113, 0.7); }
-  50%       { box-shadow: 0 0 12px rgba(46, 204, 113, 1); }
+  50%       { box-shadow: 0 0 12px rgba(46, 204, 113, 1), 0 0 20px rgba(46, 204, 113, 0.3); }
 }
 
 /* Identity */
@@ -140,12 +188,37 @@
   border: 1px solid var(--clr-border);
   border-radius: 20px;
   cursor: default;
-  transition: all 0.2s;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer sweep on chip hover */
+.topbar-chip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 168, 76, 0.08),
+    transparent
+  );
+  transition: none;
+  pointer-events: none;
+}
+
+.topbar-chip:hover::after {
+  animation: shimmerSweep 0.6s ease forwards;
 }
 
 .topbar-chip:hover {
   background: rgba(201, 168, 76, 0.07);
   border-color: var(--clr-gold-dim);
+  box-shadow: 0 0 12px rgba(201, 168, 76, 0.1);
 }
 
 .topbar-chip-icon {
@@ -153,7 +226,7 @@
   align-items: center;
   color: var(--clr-text-muted);
   flex-shrink: 0;
-  transition: color 0.2s;
+  transition: color 0.25s;
 }
 
 .topbar-chip-label {
@@ -162,6 +235,10 @@
   color: var(--clr-text-dim);
   letter-spacing: 0.07em;
   white-space: nowrap;
+}
+
+.topbar-chip:hover .topbar-chip-icon {
+  color: var(--clr-gold);
 }
 
 .topbar-chip:hover .topbar-chip-label {

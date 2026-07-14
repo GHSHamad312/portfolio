@@ -30,10 +30,55 @@
       rgba(8, 6, 4, 0.9) 100%);
 }
 
+/* ── Decorative floating orbs ─────────── */
+.hero-orbs {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.3;
+}
+
+.orb-1 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.4), transparent 70%);
+  top: 15%;
+  left: 10%;
+  animation: orbFloat 12s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(155, 89, 182, 0.3), transparent 70%);
+  top: 50%;
+  right: 15%;
+  animation: orbFloat2 15s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+.orb-3 {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(52, 152, 219, 0.25), transparent 70%);
+  bottom: 20%;
+  left: 35%;
+  animation: orbFloat 18s ease-in-out infinite;
+  animation-delay: 6s;
+}
+
 /* Grid layout */
 .home-grid {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: grid;
   grid-template-columns: 1fr 320px;
   gap: var(--space-xl);
@@ -66,22 +111,36 @@
   display: inline-block;
   width: 30px;
   height: 1px;
-  background: var(--clr-gold);
+  background: linear-gradient(90deg, transparent, var(--clr-gold));
 }
 
+/* Animated gradient shimmer on hero name */
 .hero-name {
   font-family: var(--font-heading-deco);
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
-  color: var(--clr-white);
-  text-shadow: 0 0 40px rgba(240, 208, 128, 0.4), 0 4px 20px rgba(0, 0, 0, 0.8);
+  background: linear-gradient(
+    90deg,
+    var(--clr-white) 0%,
+    var(--clr-gold-bright) 25%,
+    var(--clr-white) 50%,
+    var(--clr-gold-bright) 75%,
+    var(--clr-white) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+  text-shadow: none;
   line-height: 1.1;
   letter-spacing: 0.05em;
+  filter: drop-shadow(0 4px 20px rgba(240, 208, 128, 0.3));
 }
 
 .cursor {
   display: inline-block;
-  color: var(--clr-gold);
+  -webkit-text-fill-color: var(--clr-gold);
   animation: blink 1s step-end infinite;
   margin-left: 3px;
 }
@@ -101,6 +160,11 @@
   max-width: 480px;
   border-left: 2px solid var(--clr-gold-dim);
   padding-left: 14px;
+  transition: border-color 0.3s;
+}
+
+.hero-bio:hover {
+  border-color: var(--clr-gold);
 }
 
 /* Action buttons */
@@ -123,9 +187,26 @@
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.15em;
-  transition: all 0.25s;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   box-shadow: 0 0 20px rgba(201, 168, 76, 0.15);
   text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.1), transparent);
+  transition: none;
+}
+
+.btn-primary:hover::after {
+  animation: shimmerSweep 0.7s ease forwards;
 }
 
 .btn-primary:hover {
@@ -146,7 +227,7 @@
   color: var(--clr-text-dim);
   font-size: 0.82rem;
   letter-spacing: 0.05em;
-  transition: all 0.25s;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .btn-secondary:hover {
@@ -154,6 +235,7 @@
   border-color: var(--clr-border-bright);
   color: var(--clr-text);
   transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 /* Social links */
@@ -173,15 +255,15 @@
   border-radius: var(--radius-sm);
   color: var(--clr-text-dim);
   background: rgba(255, 255, 255, 0.03);
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .social-btn:hover {
   border-color: var(--clr-gold-dim);
   color: var(--clr-gold);
   background: rgba(201, 168, 76, 0.08);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(201, 168, 76, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(201, 168, 76, 0.15);
 }
 
 /* Stats row */
@@ -202,12 +284,13 @@
   border-radius: var(--radius-sm);
   min-width: 80px;
   text-align: center;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .stat-box:hover {
   border-color: var(--clr-gold-dim);
   box-shadow: 0 0 15px rgba(201, 168, 76, 0.1);
+  transform: translateY(-2px);
 }
 
 .stat-box-value {
@@ -263,6 +346,12 @@
   font-size: 0.78rem;
   color: var(--clr-text-dim);
   padding: 4px 0;
+  flex-wrap: wrap;
+  transition: color 0.2s;
+}
+
+.quest-item:hover {
+  color: var(--clr-text);
 }
 
 .quest-item.done {
@@ -273,6 +362,11 @@
   font-size: 0.75rem;
   width: 16px;
   color: inherit;
+  transition: transform 0.2s;
+}
+
+.quest-item:hover .quest-check {
+  transform: scale(1.2);
 }
 
 .quest-item.done .quest-check {
@@ -292,6 +386,23 @@
 
 .quest-item.done .quest-progress {
   color: var(--clr-green);
+}
+
+/* Quest progress bar for incomplete quests */
+.quest-bar {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+.quest-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--clr-gold-dim), var(--clr-gold));
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(201, 168, 76, 0.3);
 }
 
 /* Latest achievement */
@@ -335,6 +446,13 @@
   font-size: 0.75rem;
   color: var(--clr-green-bright);
   letter-spacing: 0.05em;
+  transition: all 0.3s;
+}
+
+.available-badge:hover {
+  background: rgba(39, 174, 96, 0.1);
+  border-color: rgba(39, 174, 96, 0.4);
+  box-shadow: 0 0 15px rgba(39, 174, 96, 0.1);
 }
 
 .available-dot {
@@ -342,9 +460,18 @@
   height: 8px;
   border-radius: 50%;
   background: var(--clr-green-bright);
-  box-shadow: 0 0 10px var(--clr-green);
-  animation: goldPulse 2s ease-in-out infinite;
   flex-shrink: 0;
+  position: relative;
+}
+
+/* Pulse ring on available dot */
+.available-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(46, 204, 113, 0.4);
+  animation: pulseGlow 2s ease-in-out infinite;
 }
 
 /* =============================================
@@ -365,6 +492,8 @@
   .available-badge {
     grid-column: 1 / -1;
   }
+
+  .hero-orbs { display: none; }
 }
 
 @media (max-width: 600px) {

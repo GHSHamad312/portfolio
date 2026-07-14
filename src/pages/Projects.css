@@ -67,7 +67,27 @@
   font-size: 0.68rem;
   letter-spacing: 0.12em;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Underline sweep animation */
+.filter-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--clr-gold);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.filter-btn:hover::after,
+.filter-btn.active::after {
+  width: 80%;
 }
 
 .filter-btn:hover {
@@ -97,17 +117,76 @@
   gap: 10px;
   position: relative;
   border: 1px solid var(--clr-border);
-  transition: border-color 0.25s;
+  transition: border-color 0.35s, box-shadow 0.35s;
+  overflow: hidden;
 }
 
 .project-card:hover {
-  border-color: var(--clr-gold-dim);
+  border-color: var(--rarity-clr, var(--clr-gold-dim));
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 20px color-mix(in srgb, var(--rarity-clr, var(--clr-gold)) 15%, transparent);
+}
+
+/* Rarity accent line at top of card */
+.project-accent-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.project-card:hover .project-accent-line {
+  opacity: 1;
+}
+
+/* Corner ornaments */
+.corner-ornament {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  opacity: 0;
+  transition: opacity 0.35s;
+  pointer-events: none;
+}
+
+.project-card:hover .corner-ornament {
+  opacity: 0.5;
+}
+
+.corner-ornament.top-left {
+  top: 4px;
+  left: 4px;
+  border-top: 1px solid var(--rarity-clr, var(--clr-gold-dim));
+  border-left: 1px solid var(--rarity-clr, var(--clr-gold-dim));
+}
+
+.corner-ornament.top-right {
+  top: 4px;
+  right: 4px;
+  border-top: 1px solid var(--rarity-clr, var(--clr-gold-dim));
+  border-right: 1px solid var(--rarity-clr, var(--clr-gold-dim));
+}
+
+.corner-ornament.bottom-left {
+  bottom: 4px;
+  left: 4px;
+  border-bottom: 1px solid var(--rarity-clr, var(--clr-gold-dim));
+  border-left: 1px solid var(--rarity-clr, var(--clr-gold-dim));
+}
+
+.corner-ornament.bottom-right {
+  bottom: 4px;
+  right: 4px;
+  border-bottom: 1px solid var(--rarity-clr, var(--clr-gold-dim));
+  border-right: 1px solid var(--rarity-clr, var(--clr-gold-dim));
 }
 
 .project-card-header {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .project-icon {
@@ -124,6 +203,11 @@
   padding: 3px 8px;
   font-family: var(--font-heading);
   line-height: 1.2;
+  transition: box-shadow 0.3s;
+}
+
+.project-card:hover .project-level-badge {
+  box-shadow: 0 0 12px color-mix(in srgb, var(--rarity-clr, var(--clr-gold)) 25%, transparent);
 }
 
 .project-status-badge {
@@ -145,6 +229,11 @@
   font-size: 0.95rem;
   color: var(--clr-gold-bright);
   letter-spacing: 0.05em;
+  transition: text-shadow 0.3s;
+}
+
+.project-card:hover .project-title {
+  text-shadow: 0 0 15px rgba(240, 208, 128, 0.3);
 }
 
 .project-highlight-badge {
@@ -185,18 +274,44 @@
   color: var(--clr-gold-dim);
   letter-spacing: 0.05em;
   font-family: var(--font-heading);
+  transition: all 0.25s;
 }
 
+.project-tag:hover {
+  background: rgba(201, 168, 76, 0.12);
+  border-color: var(--clr-gold-dim);
+  color: var(--clr-gold);
+  box-shadow: 0 0 8px rgba(201, 168, 76, 0.1);
+}
+
+/* Level bar with glowing tip */
 .project-level-bar-wrap {
   height: 3px;
   background: rgba(255,255,255,0.05);
   border-radius: 2px;
   overflow: hidden;
+  position: relative;
 }
 
 .project-level-bar {
   height: 100%;
   border-radius: 2px;
+  position: relative;
+  box-shadow: 0 0 6px var(--bar-color, var(--clr-gold));
+}
+
+/* Glowing tip at the end of the fill */
+.project-level-bar::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -2px;
+  width: 4px;
+  height: 7px;
+  background: inherit;
+  border-radius: 2px;
+  animation: barGlowPulse 2s ease-in-out infinite;
+  color: var(--bar-color, var(--clr-gold));
 }
 
 .project-actions {
@@ -219,12 +334,14 @@
   font-family: var(--font-heading);
   font-size: 0.62rem;
   letter-spacing: 0.1em;
-  transition: all 0.2s;
+  transition: all 0.25s;
 }
 
 .project-btn-primary:hover {
   background: rgba(201, 168, 76, 0.18);
   color: var(--clr-gold-bright);
+  box-shadow: 0 0 12px rgba(201, 168, 76, 0.15);
+  transform: translateY(-1px);
 }
 
 .project-btn-secondary {
@@ -240,12 +357,14 @@
   font-family: var(--font-heading);
   font-size: 0.62rem;
   letter-spacing: 0.1em;
-  transition: all 0.2s;
+  transition: all 0.25s;
 }
 
 .project-btn-secondary:hover {
   border-color: var(--clr-border-bright);
   color: var(--clr-text);
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.08);
+  transform: translateY(-1px);
 }
 
 /* Mobile */

@@ -28,20 +28,28 @@ export default function Experience() {
           <motion.div
             key={i}
             className="timeline-item"
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: i * 0.15, duration: 0.5 }}
+            transition={{ delay: i * 0.15, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
             {/* Timeline line and dot */}
             <div className="timeline-marker">
-              <div className="timeline-dot">
+              <motion.div
+                className="timeline-dot"
+                whileHover={{ scale: 1.15, boxShadow: '0 0 25px rgba(201, 168, 76, 0.4)' }}
+                transition={{ type: 'spring', stiffness: 400 }}
+              >
                 <span>{typeIcon[item.type]}</span>
-              </div>
+              </motion.div>
               {i < experience.length - 1 && <div className="timeline-line" />}
             </div>
 
             {/* Card */}
-            <div className="timeline-card glass-card">
+            <motion.div
+              className="timeline-card glass-card"
+              whileHover={{ y: -3 }}
+              transition={{ duration: 0.25 }}
+            >
               <div className="timeline-card-header">
                 <div>
                   <div className="timeline-type-badge">{typeLabel[item.type]}</div>
@@ -60,7 +68,7 @@ export default function Experience() {
                   <span key={tag} className="project-tag">{tag}</span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         ))}
       </div>

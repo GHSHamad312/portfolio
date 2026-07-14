@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 import Sidebar from './components/Layout/Sidebar.jsx';
 import TopBar from './components/Layout/TopBar.jsx';
 import Home from './pages/Home.jsx';
@@ -28,12 +29,31 @@ function AppRoutes() {
   );
 }
 
+function MouseSpotlight() {
+  const spotRef = useRef(null);
+
+  useEffect(() => {
+    const handleMove = (e) => {
+      if (spotRef.current) {
+        spotRef.current.style.background = `radial-gradient(600px circle at ${e.clientX}px ${e.clientY}px, rgba(201, 168, 76, 0.04), transparent 60%)`;
+      }
+    };
+    window.addEventListener('mousemove', handleMove);
+    return () => window.removeEventListener('mousemove', handleMove);
+  }, []);
+
+  return <div ref={spotRef} className="mouse-spotlight" />;
+}
+
 export default function App() {
   return (
     <BrowserRouter>
-      {/* Floating particles */}
+      {/* Mouse-following spotlight */}
+      <MouseSpotlight />
+
+      {/* Floating particles — enhanced with glow trails */}
       <div className="particles-container" aria-hidden="true">
-        {Array.from({ length: 10 }).map((_, i) => (
+        {Array.from({ length: 15 }).map((_, i) => (
           <div key={i} className="particle" />
         ))}
       </div>

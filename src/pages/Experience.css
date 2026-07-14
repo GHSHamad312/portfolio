@@ -31,12 +31,26 @@
   box-shadow: 0 0 15px rgba(201, 168, 76, 0.15);
   flex-shrink: 0;
   z-index: 1;
+  cursor: default;
+  transition: border-color 0.3s;
 }
 
+.timeline-dot:hover {
+  border-color: var(--clr-gold);
+}
+
+/* Animated flowing gradient line */
 .timeline-line {
   width: 2px;
   flex: 1;
-  background: linear-gradient(to bottom, var(--clr-gold-dim), transparent);
+  background: linear-gradient(
+    to bottom,
+    var(--clr-gold-dim),
+    rgba(201, 168, 76, 0.15),
+    var(--clr-gold-dim)
+  );
+  background-size: 100% 200%;
+  animation: timelineFlow 4s ease-in-out infinite;
   margin: 8px 0;
   min-height: 30px;
 }
@@ -45,6 +59,12 @@
   flex: 1;
   padding: var(--space-lg);
   margin-bottom: var(--space-xl);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.timeline-card:hover {
+  border-color: var(--clr-gold-dim);
+  box-shadow: var(--shadow-card), 0 0 15px rgba(201, 168, 76, 0.06);
 }
 
 .timeline-card-header {
@@ -68,6 +88,11 @@
   font-size: 1rem;
   color: var(--clr-gold-bright);
   letter-spacing: 0.05em;
+  transition: text-shadow 0.3s;
+}
+
+.timeline-card:hover .timeline-role {
+  text-shadow: 0 0 12px rgba(240, 208, 128, 0.3);
 }
 
 .timeline-org {

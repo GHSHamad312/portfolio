@@ -8,13 +8,14 @@ const { projects } = portfolioData;
 const filters = ['ALL', 'AI', 'Web', 'Mobile'];
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 40, scale: 0.97 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.45, delay: i * 0.08, ease: 'easeOut' },
+    scale: 1,
+    transition: { duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
   }),
-  exit: { opacity: 0, scale: 0.95 },
+  exit: { opacity: 0, scale: 0.95, transition: { duration: 0.2 } },
 };
 
 const levelColor = (level) => {
@@ -76,11 +77,14 @@ export default function Projects() {
               animate="visible"
               exit="exit"
               layout
-              whileHover={{ y: -4, boxShadow: '0 12px 40px rgba(0,0,0,0.5)' }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              style={{ '--rarity-clr': levelColor(project.level) }}
             >
+              {/* Rarity accent top line */}
+              <div className="project-accent-line" style={{ background: `linear-gradient(90deg, transparent, ${levelColor(project.level)}, transparent)` }} />
+
               {/* Card header */}
               <div className="project-card-header">
-                <div className="project-icon">{project.icon}</div>
                 <div
                   className="project-level-badge"
                   style={{ borderColor: levelColor(project.level), color: levelColor(project.level) }}
@@ -116,7 +120,7 @@ export default function Projects() {
               <div className="project-level-bar-wrap">
                 <motion.div
                   className="project-level-bar"
-                  style={{ background: levelColor(project.level) }}
+                  style={{ background: levelColor(project.level), '--bar-color': levelColor(project.level) }}
                   initial={{ width: 0 }}
                   animate={{ width: `${project.level}%` }}
                   transition={{ duration: 1, delay: i * 0.08 + 0.3, ease: 'easeOut' }}
@@ -140,6 +144,12 @@ export default function Projects() {
                   <GithubIcon /> GITHUB REPO
                 </a>
               </div>
+
+              {/* Corner ornaments */}
+              <div className="corner-ornament top-left" />
+              <div className="corner-ornament top-right" />
+              <div className="corner-ornament bottom-left" />
+              <div className="corner-ornament bottom-right" />
             </motion.div>
           ))}
         </AnimatePresence>

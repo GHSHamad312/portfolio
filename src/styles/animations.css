@@ -1,5 +1,5 @@
 /* =============================================
-   KEYFRAME ANIMATIONS
+   KEYFRAME ANIMATIONS — PREMIUM UPGRADE
    ============================================= */
 
 /* Glow pulse for gold elements */
@@ -24,6 +24,12 @@
 @keyframes shimmer {
   0% { background-position: -200% center; }
   100% { background-position: 200% center; }
+}
+
+/* Shimmer sweep across an element */
+@keyframes shimmerSweep {
+  0% { left: -100%; }
+  100% { left: 200%; }
 }
 
 /* Fade in from bottom */
@@ -70,6 +76,14 @@
   100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
 }
 
+/* Glow trail particle */
+@keyframes particleGlow {
+  0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+  15% { opacity: 0.6; }
+  85% { opacity: 0.6; }
+  100% { transform: translateY(-100px) scale(1.2); opacity: 0; }
+}
+
 /* Active nav indicator */
 @keyframes navGlow {
   0%, 100% { opacity: 0.7; }
@@ -96,8 +110,79 @@
   50% { color: var(--clr-gold-bright); }
 }
 
+/* ── NEW PREMIUM KEYFRAMES ────────────────── */
+
+/* Animated border glow sweep */
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Pulsing ambient glow */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+/* Floating decorative orbs */
+@keyframes orbFloat {
+  0% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(10px, -15px) scale(1.05); }
+  50% { transform: translate(-5px, -25px) scale(1); }
+  75% { transform: translate(-15px, -10px) scale(0.95); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes orbFloat2 {
+  0% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-12px, -8px) scale(0.95); }
+  50% { transform: translate(8px, -20px) scale(1.05); }
+  75% { transform: translate(15px, -5px) scale(1); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Card shine sweep */
+@keyframes cardShine {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(200%) rotate(25deg); }
+}
+
+/* Flowing gradient for borders */
+@keyframes flowGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Rotating ring */
+@keyframes rotateRing {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Level bar glow pulse */
+@keyframes barGlowPulse {
+  0%, 100% { box-shadow: 0 0 4px currentColor, 0 0 8px currentColor; }
+  50% { box-shadow: 0 0 8px currentColor, 0 0 16px currentColor, 0 0 24px currentColor; }
+}
+
+/* Timeline flow */
+@keyframes timelineFlow {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 200%; }
+}
+
+/* Subtle bounce in */
+@keyframes bounceIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 /* =============================================
-   PARTICLES BACKGROUND
+   PARTICLES BACKGROUND — ENHANCED
    ============================================= */
 .particles-container {
   position: fixed;
@@ -113,23 +198,43 @@
 .particle {
   position: absolute;
   bottom: -10px;
-  width: 3px;
-  height: 3px;
-  background: var(--clr-gold-dim);
   border-radius: 50%;
   animation: particleFloat linear infinite;
 }
 
-.particle:nth-child(1)  { left: 8%;   animation-duration: 15s; animation-delay: 0s;   width: 2px; height: 2px; }
-.particle:nth-child(2)  { left: 15%;  animation-duration: 20s; animation-delay: 3s;   width: 3px; height: 3px; }
-.particle:nth-child(3)  { left: 25%;  animation-duration: 18s; animation-delay: 7s;   width: 2px; height: 2px; }
-.particle:nth-child(4)  { left: 35%;  animation-duration: 22s; animation-delay: 1s;   width: 4px; height: 4px; }
-.particle:nth-child(5)  { left: 45%;  animation-duration: 16s; animation-delay: 5s;   width: 2px; height: 2px; }
-.particle:nth-child(6)  { left: 55%;  animation-duration: 24s; animation-delay: 2s;   width: 3px; height: 3px; }
-.particle:nth-child(7)  { left: 65%;  animation-duration: 19s; animation-delay: 8s;   width: 2px; height: 2px; }
-.particle:nth-child(8)  { left: 75%;  animation-duration: 21s; animation-delay: 4s;   width: 4px; height: 4px; }
-.particle:nth-child(9)  { left: 85%;  animation-duration: 17s; animation-delay: 6s;   width: 2px; height: 2px; }
-.particle:nth-child(10) { left: 92%;  animation-duration: 23s; animation-delay: 9s;   width: 3px; height: 3px; }
+/* Standard particles */
+.particle:nth-child(1)  { left: 8%;   animation-duration: 15s; animation-delay: 0s;   width: 2px; height: 2px; background: var(--clr-gold-dim); }
+.particle:nth-child(2)  { left: 15%;  animation-duration: 20s; animation-delay: 3s;   width: 3px; height: 3px; background: var(--clr-gold-dim); }
+.particle:nth-child(3)  { left: 25%;  animation-duration: 18s; animation-delay: 7s;   width: 2px; height: 2px; background: var(--clr-gold-dim); }
+.particle:nth-child(4)  { left: 35%;  animation-duration: 22s; animation-delay: 1s;   width: 4px; height: 4px; background: var(--clr-gold-dim); }
+.particle:nth-child(5)  { left: 45%;  animation-duration: 16s; animation-delay: 5s;   width: 2px; height: 2px; background: var(--clr-gold-dim); }
+.particle:nth-child(6)  { left: 55%;  animation-duration: 24s; animation-delay: 2s;   width: 3px; height: 3px; background: var(--clr-gold-dim); }
+.particle:nth-child(7)  { left: 65%;  animation-duration: 19s; animation-delay: 8s;   width: 2px; height: 2px; background: var(--clr-gold-dim); }
+.particle:nth-child(8)  { left: 75%;  animation-duration: 21s; animation-delay: 4s;   width: 4px; height: 4px; background: var(--clr-gold-dim); }
+.particle:nth-child(9)  { left: 85%;  animation-duration: 17s; animation-delay: 6s;   width: 2px; height: 2px; background: var(--clr-gold-dim); }
+.particle:nth-child(10) { left: 92%;  animation-duration: 23s; animation-delay: 9s;   width: 3px; height: 3px; background: var(--clr-gold-dim); }
+
+/* Glow trail particles */
+.particle:nth-child(11) { left: 12%;  animation: particleGlow 25s linear infinite; animation-delay: 2s;  width: 5px; height: 5px; background: rgba(240, 208, 128, 0.3); box-shadow: 0 0 10px rgba(201, 168, 76, 0.4), 0 0 20px rgba(201, 168, 76, 0.2); }
+.particle:nth-child(12) { left: 42%;  animation: particleGlow 20s linear infinite; animation-delay: 6s;  width: 6px; height: 6px; background: rgba(240, 208, 128, 0.25); box-shadow: 0 0 12px rgba(201, 168, 76, 0.5), 0 0 24px rgba(201, 168, 76, 0.2); }
+.particle:nth-child(13) { left: 72%;  animation: particleGlow 22s linear infinite; animation-delay: 10s; width: 4px; height: 4px; background: rgba(240, 208, 128, 0.3); box-shadow: 0 0 8px rgba(201, 168, 76, 0.4), 0 0 16px rgba(201, 168, 76, 0.15); }
+.particle:nth-child(14) { left: 28%;  animation: particleGlow 28s linear infinite; animation-delay: 4s;  width: 5px; height: 5px; background: rgba(155, 89, 182, 0.2); box-shadow: 0 0 10px rgba(155, 89, 182, 0.3), 0 0 20px rgba(155, 89, 182, 0.1); }
+.particle:nth-child(15) { left: 58%;  animation: particleGlow 26s linear infinite; animation-delay: 8s;  width: 4px; height: 4px; background: rgba(52, 152, 219, 0.2); box-shadow: 0 0 10px rgba(52, 152, 219, 0.3), 0 0 18px rgba(52, 152, 219, 0.1); }
+
+/* =============================================
+   MOUSE SPOTLIGHT OVERLAY
+   ============================================= */
+.mouse-spotlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
 
 /* =============================================
    ANIMATION UTILITY CLASSES

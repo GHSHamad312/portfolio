@@ -40,7 +40,7 @@
   color: var(--clr-text);
   font-family: var(--font-body);
   font-size: 0.85rem;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   outline: none;
 }
 
@@ -49,10 +49,11 @@
   font-style: italic;
 }
 
+/* Gradient border glow on focus */
 .form-input:focus {
-  border-color: var(--clr-gold-dim);
+  border-color: var(--clr-gold);
   background: rgba(201, 168, 76, 0.04);
-  box-shadow: 0 0 15px rgba(201, 168, 76, 0.08);
+  box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.1), 0 0 15px rgba(201, 168, 76, 0.08);
 }
 
 .form-textarea {
@@ -60,10 +61,28 @@
   min-height: 120px;
 }
 
+/* Submit button with shimmer */
 .contact-submit {
   align-self: flex-start;
   font-size: 0.78rem;
   letter-spacing: 0.15em;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-submit::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.15), transparent);
+  pointer-events: none;
+}
+
+.contact-submit:hover::after {
+  animation: shimmerSweep 0.7s ease forwards;
 }
 
 /* Info side */
@@ -91,12 +110,13 @@
   padding: 10px 12px;
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .contact-link-item:hover {
   background: rgba(201, 168, 76, 0.05);
   border-color: var(--clr-border);
+  transform: translateX(4px);
 }
 
 .contact-link-icon {
@@ -115,12 +135,27 @@
 .contact-link-value {
   font-size: 0.78rem;
   color: var(--clr-text-dim);
+  transition: color 0.2s;
 }
 
+.contact-link-item:hover .contact-link-value {
+  color: var(--clr-gold);
+}
+
+/* Slide-in arrow on hover */
 .contact-link-arrow {
   margin-left: auto;
   color: var(--clr-text-muted);
   font-size: 1.1rem;
+  transition: all 0.3s;
+  transform: translateX(-4px);
+  opacity: 0;
+}
+
+.contact-link-item:hover .contact-link-arrow {
+  transform: translateX(0);
+  opacity: 1;
+  color: var(--clr-gold);
 }
 
 .contact-status-card {

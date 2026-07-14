@@ -23,20 +23,20 @@ export const portfolioData = {
       joinedYear: 2024,
     },
     socials: {
-      github:   'https://github.com/GHSHamad312',
+      github: 'https://github.com/GHSHamad312',
       linkedin: 'https://www.linkedin.com/in/ghshamad/',
-      email:    'mailto:ghshamad312@gmail.com',
-      twitter:  'https://twitter.com/hamadcodess',
+      email: 'mailto:ghshamad312@gmail.com',
+      twitter: 'https://twitter.com/hamadcodess',
     },
   },
 
   quests: [
-    { label: 'Ace 81.1% accuracy on 538K flights', current: 1,  max: 1,    done: true  },
-    { label: 'Build a 6-agent AI system',           current: 1,  max: 1,    done: true  },
-    { label: 'Classify 7,200 brain MRIs at 80%+',  current: 1,  max: 1,    done: true  },
-    { label: 'Ship 8+ real-world projects',         current: 8,  max: 8,    done: true  },
-    { label: 'Grow to 1K GitHub Followers',         current: 13, max: 1000, done: false },
-    { label: 'Keep learning & shipping',            current: Infinity, max: Infinity, done: false, infinite: true },
+    { label: 'Ace 81.1% accuracy on 538K flights', current: 1, max: 1, done: true },
+    { label: 'Build a 6-agent AI system', current: 1, max: 1, done: true },
+    { label: 'Classify 7,200 brain MRIs at 80%+', current: 1, max: 1, done: true },
+    { label: 'Ship 8+ real-world projects', current: 8, max: 8, done: true },
+    { label: 'Grow to 1K GitHub Followers', current: 13, max: 1000, done: false },
+    { label: 'Keep learning & shipping', current: Infinity, max: Infinity, done: false, infinite: true },
   ],
 
   latestAchievement: {
@@ -47,16 +47,16 @@ export const portfolioData = {
 
   // ── SKILLS ──────────────────────────────────────────────────────────
   skills: [
-    { category: 'Mobile',   name: 'Flutter & Dart',              value: 88, color: '#02569B' },
-    { category: 'AI/ML',    name: 'Python & AI / LangChain',     value: 90, color: '#9b59b6' },
-    { category: 'Frontend', name: 'React & TypeScript',           value: 85, color: '#61DAFB' },
-    { category: 'Backend',  name: 'Node.js & Express (MERN)',     value: 82, color: '#27ae60' },
-    { category: 'AI/ML',    name: 'TensorFlow & Deep Learning',   value: 80, color: '#FF6F00' },
-    { category: 'Frontend', name: 'HTML · CSS · Tailwind',        value: 87, color: '#e67e22' },
-    { category: 'Backend',  name: 'MySQL · MongoDB · Firebase',   value: 78, color: '#16a085' },
-    { category: 'DevOps',   name: 'Docker · Azure · Git',         value: 72, color: '#2980b9' },
-    { category: 'Core',     name: 'C++ & Systems Programming',    value: 70, color: '#c0392b' },
-    { category: 'Data',     name: 'Scikit-learn · Pandas · NumPy',value: 82, color: '#F7931E' },
+    { category: 'Mobile', name: 'Flutter & Dart', value: 88, color: '#02569B' },
+    { category: 'AI/ML', name: 'Python & AI / LangChain', value: 90, color: '#9b59b6' },
+    { category: 'Frontend', name: 'React & TypeScript', value: 85, color: '#61DAFB' },
+    { category: 'Backend', name: 'Node.js & Express (MERN)', value: 82, color: '#27ae60' },
+    { category: 'AI/ML', name: 'TensorFlow & Deep Learning', value: 80, color: '#FF6F00' },
+    { category: 'Frontend', name: 'HTML · CSS · Tailwind', value: 87, color: '#e67e22' },
+    { category: 'Backend', name: 'MySQL · MongoDB · Firebase', value: 78, color: '#16a085' },
+    { category: 'DevOps', name: 'Docker · Azure · Git', value: 72, color: '#2980b9' },
+    { category: 'Core', name: 'C++ & Systems Programming', value: 70, color: '#c0392b' },
+    { category: 'Data', name: 'Scikit-learn · Pandas · NumPy', value: 82, color: '#F7931E' },
   ],
 
   // ── TECH STACK (grouped for Skills page arsenal) ────────────────────
@@ -83,7 +83,7 @@ export const portfolioData = {
     {
       id: 1,
       title: 'PolicyPilot AI',
-      description: 'Enterprise-grade autonomous compliance & workflow engine. Built with a 6-agent sequential architecture and RAG over PDFs. Fully automates HR and operational workflows for enterprises.',
+      description: 'Enterprise-grade autonomous compliance & workflow engine. Built with a 6-agent sequential architecture and RAG over PDFs. Fully automates HR and operational workflows for enterprises. Built as a group project.',
       level: 95,
       tags: ['Google Gemini', 'LangChain', 'FAISS', 'Streamlit', 'RAG', 'Python'],
       category: 'AI',

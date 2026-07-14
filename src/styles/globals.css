@@ -79,6 +79,30 @@ body {
   overflow-x: hidden;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* Ambient grid pattern overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201, 168, 76, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 168, 76, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle vignette */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Custom Scrollbar */
@@ -120,6 +144,8 @@ h1, h2, h3, h4, h5, h6 {
 .app-layout {
   display: flex;
   min-height: 100vh;
+  position: relative;
+  z-index: 1;
 }
 
 .main-content {
@@ -131,7 +157,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =============================================
-   UTILITY CLASSES
+   UTILITY CLASSES — PREMIUM GLASS CARDS
    ============================================= */
 .glass-card {
   background: var(--clr-bg-card);
@@ -139,6 +165,12 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
   backdrop-filter: blur(10px);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--clr-border-bright);
+  box-shadow: var(--shadow-card), 0 0 20px rgba(201, 168, 76, 0.08);
 }
 
 .gold-border {

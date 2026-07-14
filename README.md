@@ -13,8 +13,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/GHSHamad312"><img src="https://img.shields.io/badge/GitHub-GHSHamad312-181717?style=flat-square&logo=github" /></a>
-  <a href="https://www.linkedin.com/in/ghshamad/"><img src="https://img.shields.io/badge/LinkedIn-ghshamad-0A66C2?style=flat-square&logo=linkedin" /></a>
+  <a href="https://portfolio-bice-eight-58.vercel.app/"><img src="https://img.shields.io/badge/Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" /></a>
+  <a href="https://github.com/GHSHamad312"><img src="https://img.shields.io/badge/GitHub-GHSHamad312-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
+  <a href="https://www.linkedin.com/in/ghshamad/"><img src="https://img.shields.io/badge/LinkedIn-ghshamad-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
 </p>
 
 ---

@@ -1,19 +1,13 @@
-// =============================================
-// REAL DATA — sourced from GitHub README & LinkedIn
-// GitHub:   https://github.com/GHSHamad312
-// LinkedIn: https://www.linkedin.com/in/ghshamad/
-// Twitter:  https://twitter.com/hamadcodess
-// =============================================
 
 export const portfolioData = {
   character: {
     name: 'HAMAD',
     fullName: 'Hamad Ali Shah',
     title: 'CS Undergrad @ NUST · Full-Stack · AI & Deep Learning',
-    level: 21,
+    level: 20,
     hp: { current: 100, max: 100 },
     xp: { current: 85, max: 100 },
-    bio: "CS undergraduate at NUST passionate about engineering robust, full-stack solutions. I craft cross-platform UIs with Flutter, build scalable backends with the MERN stack, and explore AI — from Convolutional Neural Networks to agentic AI systems.",
+    bio: "CS undergraduate at NUST passionate about engineering full-stack solutions. I craft cross-platform UIs with Flutter, build scalable backends with the MERN stack, and explore AI — from Convolutional Neural Networks to agentic AI systems.",
     location: 'Pakistan 🇵🇰',
     available: true,
     githubUsername: 'GHSHamad312',
@@ -87,7 +81,6 @@ export const portfolioData = {
       level: 95,
       tags: ['Google Gemini', 'LangChain', 'FAISS', 'Streamlit', 'RAG', 'Python'],
       category: 'AI',
-      icon: '🤖',
       github: 'https://github.com/GHSHamad312/Atomcamp-Hackathon',
       demo: 'https://policypilotai-rn8aekmr5wsglf9qzk7gxh.streamlit.app/',
       status: 'completed',
@@ -102,7 +95,6 @@ export const portfolioData = {
       level: 90,
       tags: ['TensorFlow', 'Keras', 'EfficientNetB0', 'Gradio', 'CNN', 'Python'],
       category: 'AI',
-      icon: '🧠',
       github: 'https://github.com/GHSHamad312/Brain-Tumor-classification',
       demo: '#',
       status: 'completed',
@@ -117,7 +109,6 @@ export const portfolioData = {
       level: 87,
       tags: ['Python', 'Scikit-learn', 'Pandas', 'NumPy', 'ML Pipeline'],
       category: 'AI',
-      icon: '✈️',
       github: 'https://github.com/GHSHamad312/flight-delay-prediction',
       demo: '#',
       status: 'completed',
@@ -132,7 +123,6 @@ export const portfolioData = {
       level: 84,
       tags: ['React', 'TypeScript', 'Node.js', 'Socket.io', 'AES', 'RSA'],
       category: 'Web',
-      icon: '💬',
       github: 'https://github.com/GHSHamad312/Convonest',
       demo: '#',
       status: 'completed',
@@ -147,7 +137,6 @@ export const portfolioData = {
       level: 82,
       tags: ['Flutter', 'Dart', 'Firebase', 'Mobile'],
       category: 'Mobile',
-      icon: '💀',
       github: 'https://github.com/GHSHamad312/ishedead',
       demo: '#',
       status: 'completed',
@@ -162,7 +151,6 @@ export const portfolioData = {
       level: 74,
       tags: ['Flutter', 'Dart', 'Firebase', 'Mobile'],
       category: 'Mobile',
-      icon: '🌱',
       github: 'https://github.com/GHSHamad312/GoGreenQuetta',
       demo: '#',
       status: 'completed',
@@ -177,7 +165,6 @@ export const portfolioData = {
       level: 70,
       tags: ['Node.js', 'Express', 'MySQL', 'HTML', 'CSS'],
       category: 'Web',
-      icon: '📋',
       github: 'https://github.com/GHSHamad312/exam-seating-manager',
       demo: '#',
       status: 'completed',
@@ -192,7 +179,6 @@ export const portfolioData = {
       level: 60,
       tags: ['HTML', 'CSS', 'JavaScript'],
       category: 'Web',
-      icon: '🎵',
       github: 'https://github.com/GHSHamad312/music-player-website',
       demo: 'https://ghshamad312.github.io/music-test/',
       status: 'completed',

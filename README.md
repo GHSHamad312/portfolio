@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/CSS3-Custom-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
 </p>
 
-<h1 align="center">⚔️ HAMAD — Developer Portfolio</h1>
+<h1 align="center"> Developer Portfolio</h1>
 
 <p align="center">
   <strong>A fully interactive, RPG-themed developer portfolio</strong><br/>

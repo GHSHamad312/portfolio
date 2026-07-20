@@ -3,8 +3,8 @@ export const portfolioData = {
   character: {
     name: 'HAMAD',
     fullName: 'Hamad Ali Shah',
-    title: 'CS Undergrad @ NUST · Full-Stack · AI & Deep Learning',
-    level: 20,
+    title: 'CS Undergrad  NUST@27 · Full-Stack & Mobile Dev · AI & ML',
+    level: 23,
     hp: { current: 100, max: 100 },
     xp: { current: 85, max: 100 },
     bio: "CS undergraduate at NUST passionate about engineering full-stack solutions. I craft cross-platform UIs with Flutter, build scalable backends with the MERN stack, and explore AI — from Convolutional Neural Networks to agentic AI systems.",

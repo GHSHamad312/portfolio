@@ -1,14 +1,7 @@
 import { motion } from 'framer-motion';
 import './TopBar.css';
 
-function IconProjects() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
-      <polyline points="16 18 22 12 16 6" />
-      <polyline points="8 6 2 12 8 18" />
-    </svg>
-  );
-}
+
 
 function IconAI() {
   return (
@@ -29,8 +22,7 @@ function IconAvailable() {
 }
 
 const chips = [
-  { Icon: IconProjects, label: '8+ Projects' },
-  { Icon: IconAI, label: 'AI Builder' },
+  { Icon: IconAI, label: 'Currently learning Ai and agentic systems' },
   { Icon: IconAvailable, label: 'Open to Work' },
 ];
 

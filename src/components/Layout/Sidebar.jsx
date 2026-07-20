@@ -95,8 +95,8 @@ export default function Sidebar() {
             >
               <motion.div
                 className="sidebar-item-inner"
-                whileHover={{ x: 4 }}
-                transition={{ type: 'spring', stiffness: 400 }}
+                whileHover={{ x: 5 }}
+                transition={{ type: 'spring', stiffness: 500 }}
               >
                 <span className="sidebar-icon"><item.Icon /></span>
                 <span className="sidebar-label">{item.label}</span>

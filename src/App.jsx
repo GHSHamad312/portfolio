@@ -18,12 +18,12 @@ function AppRoutes() {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/"                element={<Home />}           />
-        <Route path="/skills"          element={<Skills />}         />
-        <Route path="/projects"        element={<Projects />}       />
-        <Route path="/experience"      element={<Experience />}     />
-        <Route path="/achievements"    element={<Achievements />}   />
-        <Route path="/contact"         element={<Contact />}        />
+        <Route path="/" element={<Home />} />
+        <Route path="/skills" element={<Skills />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/experience" element={<Experience />} />
+        <Route path="/achievements" element={<Achievements />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </AnimatePresence>
   );
@@ -48,15 +48,6 @@ function MouseSpotlight() {
 export default function App() {
   return (
     <BrowserRouter>
-      {/* Mouse-following spotlight */}
-      <MouseSpotlight />
-
-      {/* Floating particles — enhanced with glow trails */}
-      <div className="particles-container" aria-hidden="true">
-        {Array.from({ length: 15 }).map((_, i) => (
-          <div key={i} className="particle" />
-        ))}
-      </div>
 
       <div className="app-layout">
         <Sidebar />

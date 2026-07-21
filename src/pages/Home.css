@@ -30,50 +30,6 @@
       rgba(8, 6, 4, 0.9) 100%);
 }
 
-/* ── Decorative floating orbs ─────────── */
-.hero-orbs {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.hero-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(40px);
-  opacity: 0.3;
-}
-
-.orb-1 {
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(201, 168, 76, 0.4), transparent 70%);
-  top: 15%;
-  left: 10%;
-  animation: orbFloat 12s ease-in-out infinite;
-}
-
-.orb-2 {
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, rgba(155, 89, 182, 0.3), transparent 70%);
-  top: 50%;
-  right: 15%;
-  animation: orbFloat2 15s ease-in-out infinite;
-  animation-delay: 3s;
-}
-
-.orb-3 {
-  width: 120px;
-  height: 120px;
-  background: radial-gradient(circle, rgba(52, 152, 219, 0.25), transparent 70%);
-  bottom: 20%;
-  left: 35%;
-  animation: orbFloat 18s ease-in-out infinite;
-  animation-delay: 6s;
-}
 
 /* Grid layout */
 .home-grid {
@@ -119,14 +75,12 @@
   font-family: var(--font-heading-deco);
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
-  background: linear-gradient(
-    90deg,
-    var(--clr-white) 0%,
-    var(--clr-gold-bright) 25%,
-    var(--clr-white) 50%,
-    var(--clr-gold-bright) 75%,
-    var(--clr-white) 100%
-  );
+  background: linear-gradient(90deg,
+      var(--clr-white) 0%,
+      var(--clr-gold-bright) 25%,
+      var(--clr-white) 50%,
+      var(--clr-gold-bright) 75%,
+      var(--clr-white) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -493,7 +447,9 @@
     grid-column: 1 / -1;
   }
 
-  .hero-orbs { display: none; }
+  .hero-orbs {
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {

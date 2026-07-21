@@ -26,7 +26,6 @@ export const portfolioData = {
 
   quests: [
     { label: 'Build a project that solves a real-world problem', current: 1, max: 1, done: true },
-    { label: 'Classify 7,200 brain MRIs at 80%+', current: 1, max: 1, done: true },
     { label: 'build 10 full stack apps', current: 3, max: 10, done: false },
     { label: 'Build 5 Deep learning projects', current: 2, max: 5, done: false },
     { label: 'Grow to 100 GitHub Followers', current: 13, max: 100, done: false },

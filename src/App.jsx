@@ -29,21 +29,6 @@ function AppRoutes() {
   );
 }
 
-function MouseSpotlight() {
-  const spotRef = useRef(null);
-
-  useEffect(() => {
-    const handleMove = (e) => {
-      if (spotRef.current) {
-        spotRef.current.style.background = `radial-gradient(600px circle at ${e.clientX}px ${e.clientY}px, rgba(201, 168, 76, 0.04), transparent 60%)`;
-      }
-    };
-    window.addEventListener('mousemove', handleMove);
-    return () => window.removeEventListener('mousemove', handleMove);
-  }, []);
-
-  return <div ref={spotRef} className="mouse-spotlight" />;
-}
 
 export default function App() {
   return (

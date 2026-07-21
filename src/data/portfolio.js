@@ -25,17 +25,17 @@ export const portfolioData = {
   },
 
   quests: [
-    { label: 'Ace 81.1% accuracy on 538K flights', current: 1, max: 1, done: true },
-    { label: 'Build a 6-agent AI system', current: 1, max: 1, done: true },
+    { label: 'Build a project that solves a real-world problem', current: 1, max: 1, done: true },
     { label: 'Classify 7,200 brain MRIs at 80%+', current: 1, max: 1, done: true },
-    { label: 'Ship 8+ real-world projects', current: 8, max: 8, done: true },
-    { label: 'Grow to 1K GitHub Followers', current: 13, max: 1000, done: false },
-    { label: 'Keep learning & shipping', current: Infinity, max: Infinity, done: false, infinite: true },
+    { label: 'build 10 full stack apps', current: 3, max: 10, done: false },
+    { label: 'Build 5 Deep learning projects', current: 2, max: 5, done: false },
+    { label: 'Grow to 100 GitHub Followers', current: 13, max: 100, done: false },
+    { label: 'Keep learning', current: Infinity, max: Infinity, done: false, infinite: true },
   ],
 
   latestAchievement: {
     title: 'PolicyPilot AI',
-    subtitle: 'Hackathon Winner 🏆',
+    subtitle: 'scored 3rd position in atomcamp regional rounds 🏆',
     icon: '🤖',
   },
 

@@ -130,7 +130,6 @@ export default function Home() {
 
           <motion.div className="hero-actions" variants={itemVariants}>
             <a href="/projects" className="btn-primary">
-              <span>⚔️</span>
               <span>START JOURNEY</span>
             </a>
             <a href={character.socials.github} target="_blank" rel="noreferrer" className="btn-secondary">
@@ -139,7 +138,6 @@ export default function Home() {
             </a>
           </motion.div>
 
-          {/* SOCIAL LINKS */}
           <motion.div className="hero-socials" variants={itemVariants}>
             {socialLinks.map(s => (
               <a key={s.label} href={s.href} target="_blank" rel="noreferrer"
@@ -149,21 +147,16 @@ export default function Home() {
             ))}
           </motion.div>
 
-          {/* DEV STATS ROW — with count-up */}
           <motion.div className="stats-row" variants={itemVariants}>
             <CountUpStat value="12" label="Public Repos" delay={600} />
-            <CountUpStat value="8" label="Projects Shipped" delay={750} />
             <CountUpStat value="13" label="GitHub Followers" delay={900} />
             <CountUpStat value="2024" label="GitHub Since" delay={1050} />
           </motion.div>
         </div>
 
-        {/* HERO RIGHT — Quest Log + Achievement */}
         <div className="hero-side">
-          {/* Quest Log */}
           <motion.div className="quest-log glass-card" variants={itemVariants}>
             <h3 className="panel-title">
-              <span>📋</span>
               <span>QUEST LOG</span>
             </h3>
             <div className="divider" />
@@ -196,11 +189,8 @@ export default function Home() {
               ))}
             </ul>
           </motion.div>
-
-          {/* Latest Achievement */}
           <motion.div className="latest-achievement glass-card" variants={itemVariants}>
             <h3 className="panel-title">
-              <span>🏆</span>
               <span>LATEST ACHIEVEMENT</span>
             </h3>
             <div className="divider" />
@@ -219,7 +209,6 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Available for work badge */}
           <motion.div className="available-badge" variants={itemVariants}>
             <span className="available-dot" />
             <span>Available for opportunities</span>

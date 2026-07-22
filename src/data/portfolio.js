@@ -56,18 +56,21 @@ export const portfolioData = {
   techStack: {
     'Frontend & Mobile': [
       'JavaScript', 'TypeScript', 'React', 'Tailwind CSS', 'Vite',
-      'Flutter', 'Dart', 'HTML5', 'CSS3', 'Figma',
+      'Flutter', 'Dart', 'HTML5', 'CSS3', 'Figma', 'React-native',
     ],
     'Backend & Cloud': [
-      'Node.js', 'Express', 'Python', 'C++', 'MySQL', 'MongoDB',
-      'Firebase', 'Docker', 'Azure', 'REST API',
+      'Node.js', 'Express', 'Python', 'C++',
+      'Firebase', 'Docker', 'Azure', 'REST API', 'AppWrite',
     ],
     'AI & Data Science': [
-      'TensorFlow', 'Keras', 'Scikit-learn', 'Pandas', 'NumPy',
-      'LangChain', 'Google Gemini', 'FAISS', 'Gradio', 'Streamlit',
+      'Pytorch', 'Keras', 'Scikit-learn', 'Pandas', 'NumPy',
+      'LangChain', 'Google Gemini', 'Gradio', 'Streamlit',
     ],
     'Tools & DevOps': [
       'Git', 'GitHub Actions', 'Linux', 'Ubuntu', 'VS Code', 'Postman',
+    ],
+    'Database': [
+      'MySQL', 'MongoDB', 'chromadb', 'FAISS'
     ],
   },
 

@@ -103,9 +103,19 @@
 }
 
 .quick-fact-icon {
-  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 22px;
-  text-align: center;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--clr-gold);
+}
+
+.quick-fact-icon svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
   flex-shrink: 0;
 }
 

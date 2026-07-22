@@ -23,7 +23,6 @@ export default function Skills() {
       transition={{ duration: 0.4 }}
     >
       <div className="page-header">
-        <div className="page-header-decor">⚔️</div>
         <div>
           <h1 className="page-title">TECHNICAL SKILLS</h1>
           <p className="page-subtitle">Languages, frameworks, systems and tools in my arsenal</p>
@@ -39,11 +38,16 @@ export default function Skills() {
           animate="visible"
         >
           <h2 className="section-title">
-            <span className="section-icon">🛠️</span>
+            <span className="section-icon">
+              {/* Wrench + gear */}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </span>
             ARSENAL & TECHNOLOGIES
           </h2>
           <div className="divider" />
-          
+
           <div className="tech-stack-grid">
             {Object.entries(techStack || {}).map(([groupName, items], gi) => (
               <motion.div
@@ -81,20 +85,41 @@ export default function Skills() {
           >
             <h2 className="section-title">
               <span className="section-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="14" height="14"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="14" height="14"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" /></svg>
               </span>
               QUICK FACTS
             </h2>
             <div className="divider" />
             <ul className="quick-facts-list">
               {[
-                { icon: '📅', label: 'GitHub Member Since', value: '2024'         },
-                { icon: '🚀', label: 'Projects Shipped',    value: '8+'           },
-                { icon: '📁', label: 'Public Repositories', value: '12'           },
-                { icon: '👥', label: 'GitHub Followers',    value: '13'           },
-                { icon: '🌍', label: 'Location',            value: 'Pakistan 🇵🇰' },
-                { icon: '🎯', label: 'Focus Area',          value: 'AI & Full-Stack' },
-                { icon: '✅', label: 'Status',              value: 'Open to Work' },
+                {
+                  svg: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>,
+                  label: 'GitHub Member Since', value: '2024'
+                },
+                {
+                  svg: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>,
+                  label: 'Projects Shipped', value: '8+'
+                },
+                {
+                  svg: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>,
+                  label: 'Public Repositories', value: '12'
+                },
+                {
+                  svg: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+                  label: 'GitHub Followers', value: '13'
+                },
+                {
+                  svg: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
+                  label: 'Location', value: 'Pakistan'
+                },
+                {
+                  svg: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
+                  label: 'Focus Area', value: 'AI & Full-Stack'
+                },
+                {
+                  svg: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>,
+                  label: 'Status', value: 'Open to Work'
+                },
               ].map((fact, i) => (
                 <motion.li
                   key={fact.label}
@@ -103,7 +128,7 @@ export default function Skills() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4 + i * 0.06 }}
                 >
-                  <span className="quick-fact-icon">{fact.icon}</span>
+                  <span className="quick-fact-icon">{fact.svg}</span>
                   <span className="quick-fact-label">{fact.label}</span>
                   <span className="quick-fact-value">{fact.value}</span>
                 </motion.li>
